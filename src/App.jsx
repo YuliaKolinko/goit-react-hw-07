@@ -14,14 +14,7 @@ function App() {
   const error = useSelector((state) => state.contacts.error);
 
   useEffect(() => {
-    dispatch(fetchContacts())
-      .unwrap()
-      .then(() => {
-        console.log("Contacts fetched successfully");
-      })
-      .catch((err) => {
-        console.error("Failed to fetch contacts:", err);
-      });
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
@@ -29,9 +22,9 @@ function App() {
       <div className={css.container}>
         <h1 className={css.title}>Phonebook</h1>
         <ContactForm />
-        {loading && <Loader />}
-        {error && <Error>{error}</Error>}
         <SearchBox />
+        {loading && <Loader>Loading</Loader>}
+        {error && <Error>{error}</Error>}
         <ContactList />
       </div>
     </>
