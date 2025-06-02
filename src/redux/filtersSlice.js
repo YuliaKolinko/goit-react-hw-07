@@ -14,3 +14,4 @@ export const filterSlice = createSlice({
 
 export default filterSlice.reducer;
 export const { setFilter } = filterSlice.actions;
+export const selectNameFilter = (state) => state.filters.name;
